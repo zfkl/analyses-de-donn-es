@@ -1,5 +1,6 @@
 # spark streaming visualization
-Based on driver program, I let as an exercise for interested reader, the dataset creation
+Based on driver program, I let as an exercise for interested reader, the dataset creation.
+
 Spark streaming allows us to process in real time massive data. Here I use a dynamic dashboard to vilualize data.
 
 Real time simulated business sales streamed to  Apache Spark big data engine
