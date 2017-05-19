@@ -19,10 +19,10 @@ class IndexHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     def get(self):
         #self.write("This is your response")
-        self.render("bike_datamining.html")
+        self.render("visu.html")
         print "MAIN HANDLER"
         print self.request
-        
+
 
 
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
@@ -31,10 +31,10 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         print self.request
         clients.add(self)
         print" clients size is {}".format(len(clients))
-        
-        
 
-    def on_message(self, message):        
+
+
+    def on_message(self, message):
         """
         when we receive some message we send json to visu client
         """
