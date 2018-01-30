@@ -45,7 +45,7 @@ if __name__ == "__main__":
       raise
 
     # Create a local StreamingContext with two working thread and batch interval of 1 second
-    sc = SparkContext("local[2]", "NetworkWordCount")
+    sc = SparkContext("local[2]", "NetworkBusinessCount")
     ssc = StreamingContext(sc, 1)
 
     # Create a DStream that will connect to hostname:port, like localhost:9999
@@ -62,9 +62,9 @@ if __name__ == "__main__":
 
     
     #Send data to visual client host 
-    wordCounts_Paris = sales_Paris.reduceByKey(lambda x, y: x + y).map(lambda x: (x[0], x[1].tolist())).foreachRDD(sendToVisu)
-    wordCounts_Montreal = sales_Montreal.reduceByKey(lambda x, y: x + y).map(lambda x: (x[0], x[1].tolist())).foreachRDD(sendToVisu)
-    wordCounts_Pekin = sales_Pekin.reduceByKey(lambda x, y: x + y).map(lambda x: (x[0], x[1].tolist())).foreachRDD(sendToVisu)
+    BusinessCounts_Paris = sales_Paris.reduceByKey(lambda x, y: x + y).map(lambda x: (x[0], x[1].tolist())).foreachRDD(sendToVisu)
+    BusinessCounts_Montreal = sales_Montreal.reduceByKey(lambda x, y: x + y).map(lambda x: (x[0], x[1].tolist())).foreachRDD(sendToVisu)
+    BusinessCounts_Pekin = sales_Pekin.reduceByKey(lambda x, y: x + y).map(lambda x: (x[0], x[1].tolist())).foreachRDD(sendToVisu)
     #will add checkpoint later
 
     ssc.start()             # Start the computation
